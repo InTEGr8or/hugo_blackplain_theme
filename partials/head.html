@@ -6,7 +6,7 @@
   <meta name="twitter:title" content="{{ .Site.Title | truncate 70 }}" /> {{- else }}
   <title>{{ .Title }} - {{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
-  <meta name="twitter:title" content="{{ printf " %s - %s " .Title .Site.Title | truncate 70 }}" /> {{- end }} 
+  <meta name="twitter:title" content="{{ printf "%s - %s" .Title .Site.Title | truncate 70 }}" /> {{- end }} 
   {{- with .Description | default .Params.subtitle | default .Summary }}
     <meta name="description" content="{{ . }}">
     <meta property="og:description" content="{{ . }}">
