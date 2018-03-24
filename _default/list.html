@@ -1,5 +1,4 @@
-{{ define "main" }} 
-{{- if eq .Kind "taxonomy" }}
+{{ define "main" }} {{- if eq .Kind "taxonomy" }}
 <div class="breadcrumb">
   <a href="{{ " / " | relURL }}{{ .Data.Plural | urlize }}/">{{ .Data.Plural | humanize }}</a> / {{ .Data.Term | humanize }}
 </div>
@@ -7,7 +6,7 @@
 <div class="breadcrumb">
   {{ .Title }}
 </div>
-{{- end }}
+{{- end }} {{- if .Params.audio }} {{ partial "powerpress.html" . }} {{- end }}
 <h5 class="main">
   {{ .Page.Description }}
 </h5>
