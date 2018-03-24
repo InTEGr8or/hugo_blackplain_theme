@@ -14,9 +14,9 @@
 				<div class="mejs-mediaelement">
 					<mediaelementwrapper id="audio-801-1">
 						<audio class="wp-audio-shortcode" id="audio-801-1_html5" preload="none" style="width: 100%; height: 100%;"
-						    src="https://media.blubrry.com/phi_fi/p/phi-fi.com/{{ .Params.audio }}?_=1">
-							<source type="audio/mpeg" src="https://media.blubrry.com/phi_fi/p/phi-fi.com/{{ .Params.audio }}?_=1">
-							<a href="https://media.blubrry.com/phi_fi/p/phi-fi.com/{{ .Params.audio }}">https://media.blubrry.com/phi_fi/p/phi-fi.com/{{ .Params.audio }}</a>
+						    src="{{ .Site.Params.bbURL }}{{ .Params.audio }}?_=1">
+							<source type="audio/mpeg" src="{{ .Site.Params.bbURL }}{{ .Params.audio }}?_=1">
+							<a href="{{ .Site.Params.bbURL }}{{ .Params.audio }}">https://media.blubrry.com/phi_fi/p/phi-fi.com/{{ .Params.audio }}</a>
 						</audio>
 					</mediaelementwrapper>
 				</div>
