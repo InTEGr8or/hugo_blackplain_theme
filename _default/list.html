@@ -30,7 +30,7 @@
           </a>
           <ul class="article-meta">
             <li class="article-meta-date">
-              <time>{{ .Date.Format (default "January 2, 2006" $.Site.Params.dateFormat) }}</time>
+              <time>{{ .Date.Format (default "January 2, 2011" $.Site.Params.dateFormat) }}</time>
             </li>
             {{- if .Params.categories }} 
               {{- range .Params.categories }}
@@ -64,7 +64,11 @@
             </a>
           {{- end }}
           <div class="article-content">
-            {{ .Summary }} 
+            {{- if .Truncated }} 
+              {{ .Summary }} 
+            {{- else }} 
+              {{ .Content }} 
+            {{- end }}
           </div>
           <div class="article-readmore">
             <a href="{{ .Permalink | relURL }}">Read more...</a>
