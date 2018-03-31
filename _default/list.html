@@ -9,11 +9,13 @@
     </div>
   {{- end }} 
   <div class="main">
-    
-    <h5 class="">
+    {{- if .Params.image }}
+      <img src="{{ .Params.image }}" width="100%" />
+    {{- end}}
+    <h5 class="page-description">
       {{ .Page.Description }}
     </h5>
-    <div class="">
+    <div class="page-content">
       {{ .Page.Content }}
     </div>
     <!-- section_panels START -->
