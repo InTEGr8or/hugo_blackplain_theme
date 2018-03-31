@@ -4,18 +4,20 @@
       <a href="{{ "/" | relURL }}{{ .Data.Plural | urlize }}/">{{ .Data.Plural | humanize }}</a> / {{ .Data.Term | humanize }}
     </div>
   {{- else if eq .Kind "section" }}
-    <div class="breadcrumb">
+    <div class="breadcrumb list">
       {{ .Title }}
     </div>
-    <div class="test audio">
-      .Params
-    </div>
   {{- end }} 
-  <h5 class="main">
-    {{ .Page.Description }}
-  </h5>
   <div class="main">
-    {{ .Page.Content }}
+    
+    <h5 class="">
+      {{ .Page.Description }}
+    </h5>
+    <div class="">
+      {{ .Page.Content }}
+    </div>
+    <!-- section_panels START -->
+    {{ partial "section_panels.html" . }}
   </div>
   <div class="main" role="main">
     <section class="list {{ .Kind }}-list">
