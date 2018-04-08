@@ -7,7 +7,7 @@
 						{{ .Site.Params.title }}
 					</a>
 					<span class="version-span">
-						{{ .Site.Params.version }}
+						<!-- {{ partial "github-tag.svg" }} -->
 					</span>
 				</h1>
 			</div>
@@ -16,9 +16,7 @@
 					<div class="col-12">{{ . }}</div>
 				{{- end }}
 				<div class="col-12">
-					<a href="{{ .Site.Params.githubURL }}" target="_blank">
-						<img src="https://img.shields.io/github/last-commit/google/skia.svg?style=plastic" alt="GitHub last commit">
-					</a>
+					{{ partial "latest-commit.html"}}
 				</div>
 			</div>
 		</div>
