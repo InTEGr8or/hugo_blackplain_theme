@@ -38,6 +38,13 @@
           {{- end }}
         {{- end }}
       </ul>
+      {{- if .Params.characters }}
+        <dl class="characters row">
+          {{- range $key, $value := .Params.characters}}
+            <dt class="col-6">{{ $key }}</dt><dd class="col-6">{{ $value }}</dd>
+          {{- end }}
+        </dl>
+      {{- end }}
       {{ partial "toc.html" . }}
       {{ .Content }}
     </article>
