@@ -1,0 +1,9 @@
+{{- if .Params.characters }}
+	<h3 class="title">Characters</h3>
+	<dl class="characters row">
+		{{- range $key, $value := .Params.characters}}
+			<dt class="col-6">{{ $key }}</dt>
+			<dd class="col-6">{{ $value }}</dd>
+		{{- end }}
+	</dl>
+{{- end }}

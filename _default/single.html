@@ -38,13 +38,7 @@
           {{- end }}
         {{- end }}
       </ul>
-      {{- if .Params.characters }}
-        <dl class="characters row">
-          {{- range $key, $value := .Params.characters}}
-            <dt class="col-6">{{ $key }}</dt><dd class="col-6">{{ $value }}</dd>
-          {{- end }}
-        </dl>
-      {{- end }}
+      {{ partial "character-list.html" . }}
       {{ partial "toc.html" . }}
       {{ .Content }}
     </article>
@@ -53,27 +47,31 @@
       <section class="article-series">
         {{- $thispagefilepath := .File.Path }}
         {{- range .Params.series }}
-        {{- $lseries := replaceRE "( |–)" "-" (lower .) }}
-        <h2 class="series-title"><a href="{{ "/" | relURL }}series/{{ . | urlize }}/"><svg class="icon"><use xlink:href="{{ "images/fa-solid.svg" | relURL }}#book"></use></svg>&nbsp;{{ . }}</a></h2>
-        <ol reversed="reversed" class="series">
-        {{- range (index $.Site.Taxonomies.series $lseries).Pages.ByDate.Reverse }}
-        {{- if eq $thispagefilepath .File.Path }}
-          <li class="active">{{ .LinkTitle }}</li>
-        {{- else }}
-          <li><a href="{{ .Permalink | relURL }}">{{ .LinkTitle }}</a></li>
-        {{- end }}
-        {{- end }}
-        </ol>
+          {{- $lseries := replaceRE "( |–)" "-" (lower .) }}
+          <h2 class="series-title">
+            <a href="{{ "/" | relURL }}series/{{ . | urlize }}/">
+              <svg class="icon">
+                <use xlink:href="{{ "images/fa-solid.svg" | relURL }}#book"></use>
+              </svg>&nbsp;{{ . }}
+            </a>
+          </h2>
+          <ol reversed="reversed" class="series">
+            {{- range (index $.Site.Taxonomies.series $lseries).Pages.ByDate.Reverse }}
+              {{- if eq $thispagefilepath .File.Path }}
+                <li class="active">{{ .LinkTitle }}</li>
+              {{- else }}
+                <li><a href="{{ .Permalink | relURL }}">{{ .LinkTitle }}</a></li>
+              {{- end }}
+            {{- end }}
+          </ol>
         {{- end }}
       </section>
     {{- end }}
-
     {{- if and .Site.DisqusShortname (or (not (isset .Params "comments")) (eq .Params.comments nil) .Params.comments) }}
       <div class="disqus-comments">
         {{ template "_internal/disqus.html" . }}
       </div>
     {{- end }}
-
     <ul class="pager article-pager">
       {{- if .NextInSection }}
         <li class="pager-newer">
