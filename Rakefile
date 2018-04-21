@@ -1,1 +1,0 @@
-printf "empty rake task"
