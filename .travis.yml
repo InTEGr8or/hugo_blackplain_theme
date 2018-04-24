@@ -1,2 +1,2 @@
 script:
-    - cat podcasts/list.xml
+    - cat layouts/podcasts/list.xml
