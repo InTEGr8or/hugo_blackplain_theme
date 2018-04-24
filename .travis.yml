@@ -1,2 +1,2 @@
 script:
-    - cat layouts/podcasts/list.xml
+    - cat README.md
