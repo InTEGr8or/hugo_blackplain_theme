@@ -1,6 +1,5 @@
 <header class="site-header">
 	<nav class="site-navi">
-		<div class="row col-12">
 			<div class="col-5 title-col">
 				<h1 class="site-title" id="site-title">
 					<a href='{{ "/" | relURL }}' style="float: left;">
@@ -20,7 +19,9 @@
 					{{ partial "latest-commit.html" . }}
 				</div>
 			</div>
-		</div>
+	</nav>
+	<nav class="nav navbar-nav">
+		{{ partial "breadcrumbs.html"}}
 	</nav>
 </header>
 <hr class="site-header-bottom">
