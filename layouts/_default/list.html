@@ -1,4 +1,5 @@
-{{ define "main" }} 
+{{ define "main" }}
+  <div data-file="list"></div>
   {{- if eq .Kind "taxonomy" }}
     <div class="breadcrumb">
       <a href="{{ "/" | relURL }}{{ .Data.Plural | urlize }}/">{{ .Data.Plural | humanize }}</a> / {{ .Data.Term | humanize }}
@@ -7,7 +8,7 @@
     <div class="breadcrumb list">
       {{ .Title }}
     </div>
-  {{- end }} 
+  {{- end }}
   <div class="main">
     {{- if .Params.image }}
       <img src="{{ .Params.image }}" width="100%" />
@@ -25,7 +26,7 @@
   </div>
   <div class="main" role="main">
     <section class="list {{ .Kind }}-list">
-      {{- $paginator := .Paginator }} 
+      {{- $paginator := .Paginator }}
       {{- range $paginator.Pages.ByDate.Reverse }}
         <article class="article">
           <a href="{{ .Permalink | relURL }}" class="article-titles">
@@ -38,7 +39,7 @@
             <li class="article-meta-date">
               <time>{{ .Date.Format (default "January 2, 2011" $.Site.Params.dateFormat) }}</time>
             </li>
-            {{- if .Params.categories }} 
+            {{- if .Params.categories }}
               {{- range .Params.categories }}
                 <li class="article-meta-categories">
                   <a href="{{ "/" | relURL }}categories/{{ . | urlize }}/">
@@ -48,9 +49,9 @@
                     {{ . }}
                   </a>&nbsp;
                 </li>
-              {{- end }} 
-            {{- end }} 
-            {{- if .Params.tags }} 
+              {{- end }}
+            {{- end }}
+            {{- if .Params.tags }}
               {{- range .Params.tags }}
                 <li class="article-meta-tags">
                   <a href="{{ "/" | relURL }}tags/{{ . | urlize }}/">
@@ -60,20 +61,20 @@
                     {{ . }}
                   </a>&nbsp;
                 </li>
-              {{- end }} 
+              {{- end }}
             {{- end }}
           </ul>
-      
+
           {{- if .Params.image }}
             <a href="{{ .Permalink | relURL }}">
               <img src="{{ .Params.image }}" class="article-image" />
             </a>
           {{- end }}
           <div class="article-content">
-            {{- if .Truncated }} 
-              {{ .Summary }} 
-            {{- else }} 
-              {{ .Content }} 
+            {{- if .Truncated }}
+              {{ .Summary }}
+            {{- else }}
+              {{ .Content }}
             {{- end }}
           </div>
           <div class="article-readmore">
