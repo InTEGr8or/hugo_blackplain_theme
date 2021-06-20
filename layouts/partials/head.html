@@ -18,7 +18,7 @@
     <link rel='icon' type='image/x-icon' href="{{ . | relURL }}" />
   {{- end }}
   <meta property="og:site_name" content="{{ .Site.Title }}" />
-  <meta property="og:url" content="{{ .URL | relURL }}" /> {{- if .IsPage }}
+  <meta property="og:url" content="{{ .Permalink | relURL }}" /> {{- if .IsPage }}
   <meta property="og:type" content="article" /> {{- else }}
   <meta property="og:type" content="website" /> {{- end }} {{- with default .Params.image | default .Site.Params.logo }}
   <meta property="og:image" content="{{ . | relURL }}" />
